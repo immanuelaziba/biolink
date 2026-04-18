@@ -1,247 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immanuel Aziba — CPSA OS</title>
+  <link rel="icon" type="image/png" href="Favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+    .bio-root {
+      min-height: 100vh;
+      background: #EAE8E2;
+      font-family: 'Manrope', 'Calibri', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 20px 96px;
+      position: relative;
+      overflow: hidden;
+    }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+    .bio-root::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      border: 1px solid rgba(198,163,87,0.14);
+      pointer-events: none;
+    }
+    .bio-root::after {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 1px solid rgba(198,163,87,0.10);
+      pointer-events: none;
+    }
 
-  .bio-root {
-    min-height: 100vh;
-    background: #EAE8E2;
-    font-family: 'Manrope', 'Calibri', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 64px 20px 96px;
-    position: relative;
-    overflow: hidden;
-  }
+    .inner {
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: fadeUp 0.5s cubic-bezier(0.23,1,0.32,1) both;
+    }
 
-  .bio-root::before {
-    content: '';
-    position: absolute;
-    top: -120px;
-    right: -120px;
-    width: 480px;
-    height: 480px;
-    border-radius: 50%;
-    border: 1px solid rgba(198,163,87,0.14);
-    pointer-events: none;
-  }
-  .bio-root::after {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    border: 1px solid rgba(198,163,87,0.10);
-    pointer-events: none;
-  }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-  .inner {
-    width: 100%;
-    max-width: 440px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    animation: fadeUp 0.5s cubic-bezier(0.23,1,0.32,1) both;
-  }
+    .logo-wrap {
+      margin-bottom: 24px;
+      animation: fadeUp 0.5s 0.08s cubic-bezier(0.23,1,0.32,1) both;
+    }
+    .logo-wrap img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+    .name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(28px, 6vw, 38px);
+      color: #303438;
+      letter-spacing: -0.015em;
+      text-align: center;
+      line-height: 1.1;
+      animation: fadeUp 0.5s 0.12s cubic-bezier(0.23,1,0.32,1) both;
+    }
 
-  .name {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 600;
-    font-size: clamp(28px, 6vw, 38px);
-    color: #303438;
-    letter-spacing: -0.015em;
-    text-align: center;
-    line-height: 1.1;
-    animation: fadeUp 0.5s 0.12s cubic-bezier(0.23,1,0.32,1) both;
-  }
+    .role {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: #C6A357;
+      text-transform: uppercase;
+      margin-top: 8px;
+      text-align: center;
+      animation: fadeUp 0.5s 0.16s cubic-bezier(0.23,1,0.32,1) both;
+    }
 
-  .role {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    color: #C6A357;
-    text-transform: uppercase;
-    margin-top: 8px;
-    text-align: center;
-    animation: fadeUp 0.5s 0.16s cubic-bezier(0.23,1,0.32,1) both;
-  }
+    .tagline {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: #55585C;
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.6;
+      max-width: 320px;
+      animation: fadeUp 0.5s 0.20s cubic-bezier(0.23,1,0.32,1) both;
+    }
 
-  .tagline {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #55585C;
-    text-align: center;
-    margin-top: 12px;
-    line-height: 1.6;
-    max-width: 320px;
-    animation: fadeUp 0.5s 0.20s cubic-bezier(0.23,1,0.32,1) both;
-  }
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(198,163,87,0.20);
+      margin: 32px 0;
+      animation: fadeUp 0.5s 0.24s cubic-bezier(0.23,1,0.32,1) both;
+    }
 
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: rgba(198,163,87,0.20);
-    margin: 32px 0;
-    animation: fadeUp 0.5s 0.24s cubic-bezier(0.23,1,0.32,1) both;
-  }
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      animation: fadeUp 0.5s 0.28s cubic-bezier(0.23,1,0.32,1) both;
+    }
 
-  .links {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    animation: fadeUp 0.5s 0.28s cubic-bezier(0.23,1,0.32,1) both;
-  }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 16px 24px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      transition: transform 200ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms ease;
+      cursor: pointer;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 16px 24px;
-    border-radius: 16px;
-    text-decoration: none;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    transition: transform 200ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms ease;
-    cursor: pointer;
-    border: none;
-    position: relative;
-    overflow: hidden;
-  }
+    .btn:hover { transform: translateY(-2px); }
 
-  .btn:hover {
-    transform: translateY(-2px);
-  }
+    .btn-primary { background: #A12121; color: #EAE8E2; }
+    .btn-primary:hover { background: #8E1D1D; }
 
-  .btn-primary {
-    background: #A12121;
-    color: #EAE8E2;
-  }
-  .btn-primary:hover {
-    background: #8E1D1D;
-  }
+    .btn-secondary {
+      background: #F4F3F0;
+      color: #303438;
+      border: 1px solid rgba(48,52,56,0.12);
+    }
+    .btn-secondary:hover {
+      border-color: rgba(48,52,56,0.24);
+      background: #EEECE8;
+    }
 
-  .btn-secondary {
-    background: #F4F3F0;
-    color: #303438;
-    border: 1px solid rgba(48,52,56,0.12);
-  }
-  .btn-secondary:hover {
-    border-color: rgba(48,52,56,0.24);
-    background: #EEECE8;
-  }
+    .btn-label { display: flex; align-items: center; gap: 10px; }
 
-  .btn-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+    .btn-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .btn-primary .btn-tag { background: rgba(234,232,226,0.18); color: #EAE8E2; }
+    .btn-secondary .btn-tag { background: rgba(198,163,87,0.14); color: #9A7D3A; }
 
-  .btn-tag {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    padding: 3px 8px;
-    border-radius: 6px;
-    text-transform: uppercase;
-  }
-  .btn-primary .btn-tag {
-    background: rgba(234,232,226,0.18);
-    color: #EAE8E2;
-  }
-  .btn-secondary .btn-tag {
-    background: rgba(198,163,87,0.14);
-    color: #9A7D3A;
-  }
+    .btn-arrow {
+      width: 18px;
+      height: 18px;
+      opacity: 0.55;
+      flex-shrink: 0;
+      transition: transform 200ms ease, opacity 200ms ease;
+    }
+    .btn:hover .btn-arrow { transform: translate(2px, -2px); opacity: 0.9; }
 
-  .btn-arrow {
-    width: 18px;
-    height: 18px;
-    opacity: 0.55;
-    flex-shrink: 0;
-    transition: transform 200ms ease, opacity 200ms ease;
-  }
-  .btn:hover .btn-arrow {
-    transform: translate(2px, -2px);
-    opacity: 0.9;
-  }
+    .divider2 {
+      width: 100%;
+      height: 1px;
+      background: rgba(198,163,87,0.20);
+      margin: 32px 0 28px;
+      animation: fadeUp 0.5s 0.36s cubic-bezier(0.23,1,0.32,1) both;
+    }
 
-  .divider2 {
-    width: 100%;
-    height: 1px;
-    background: rgba(198,163,87,0.20);
-    margin: 32px 0 28px;
-    animation: fadeUp 0.5s 0.36s cubic-bezier(0.23,1,0.32,1) both;
-  }
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      animation: fadeUp 0.5s 0.40s cubic-bezier(0.23,1,0.32,1) both;
+    }
 
-  .socials {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    animation: fadeUp 0.5s 0.40s cubic-bezier(0.23,1,0.32,1) both;
-  }
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #F4F3F0;
+      border: 1px solid rgba(48,52,56,0.10);
+      color: #55585C;
+      text-decoration: none;
+      transition: transform 200ms cubic-bezier(0.23,1,0.32,1), border-color 200ms ease, color 200ms ease;
+    }
+    .social-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(48,52,56,0.24);
+      color: #303438;
+    }
+    .social-link svg { width: 17px; height: 17px; fill: currentColor; flex-shrink: 0; }
 
-  .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: #F4F3F0;
-    border: 1px solid rgba(48,52,56,0.10);
-    color: #55585C;
-    text-decoration: none;
-    transition: transform 200ms cubic-bezier(0.23,1,0.32,1), border-color 200ms ease, color 200ms ease;
-  }
-  .social-link:hover {
-    transform: translateY(-2px);
-    border-color: rgba(48,52,56,0.24);
-    color: #303438;
-  }
-  .social-link svg {
-    width: 17px;
-    height: 17px;
-    fill: currentColor;
-    flex-shrink: 0;
-  }
+    .footer {
+      margin-top: 48px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      color: rgba(48,52,56,0.35);
+      letter-spacing: 0.04em;
+      text-align: center;
+      animation: fadeUp 0.5s 0.44s cubic-bezier(0.23,1,0.32,1) both;
+    }
 
-  .footer {
-    margin-top: 48px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 12px;
-    color: rgba(48,52,56,0.35);
-    letter-spacing: 0.04em;
-    text-align: center;
-    animation: fadeUp 0.5s 0.44s cubic-bezier(0.23,1,0.32,1) both;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .inner, .logo-wrap, .name, .role, .tagline,
-    .divider, .links, .divider2, .socials, .footer,
-    .btn, .social-link { animation: none; transition: none; }
-  }
-</style>
+    @media (prefers-reduced-motion: reduce) {
+      .inner, .logo-wrap, .name, .role, .tagline,
+      .divider, .links, .divider2, .socials, .footer,
+      .btn, .social-link { animation: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
 
 <div class="bio-root" role="main">
   <div class="inner">
 
-    <div class="logo-wrap" style="margin-bottom:24px;animation:fadeUp 0.5s 0.08s cubic-bezier(0.23,1,0.32,1) both;">
-      <img src="Immanuel_Aziba_Logo.svg" alt="Immanuel Aziba — CPSA OS" style="height:40px;width:auto;display:block;">
+    <div class="logo-wrap">
+      <img src="Immanuel_Aziba_Logo.svg" alt="Immanuel Aziba — CPSA OS">
     </div>
 
     <h1 class="name">Immanuel Aziba</h1>
@@ -317,3 +311,6 @@
 
   </div>
 </div>
+
+</body>
+</html>
