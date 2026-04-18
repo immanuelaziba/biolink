@@ -54,33 +54,6 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .avatar-ring {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: #303438;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-bottom: 24px;
-    animation: fadeUp 0.5s 0.08s cubic-bezier(0.23,1,0.32,1) both;
-  }
-  .avatar-ring::after {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    border: 1px solid rgba(198,163,87,0.40);
-  }
-  .avatar-initials {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 600;
-    font-size: 22px;
-    color: #EAE8E2;
-    letter-spacing: -0.02em;
-  }
-
   .name {
     font-family: 'Fraunces', Georgia, serif;
     font-weight: 600;
@@ -258,7 +231,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .inner, .avatar-ring, .name, .role, .tagline,
+    .inner, .logo-wrap, .name, .role, .tagline,
     .divider, .links, .divider2, .socials, .footer,
     .btn, .social-link { animation: none; transition: none; }
   }
@@ -267,8 +240,8 @@
 <div class="bio-root" role="main">
   <div class="inner">
 
-    <div class="avatar-ring" aria-hidden="true">
-      <span class="avatar-initials">IA</span>
+    <div class="logo-wrap" style="margin-bottom:24px;animation:fadeUp 0.5s 0.08s cubic-bezier(0.23,1,0.32,1) both;">
+      <img src="Immanuel_Aziba_Logo.svg" alt="Immanuel Aziba — CPSA OS" style="height:40px;width:auto;display:block;">
     </div>
 
     <h1 class="name">Immanuel Aziba</h1>
